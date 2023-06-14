@@ -33,6 +33,8 @@ const initialState = {
   totalTyped: 0,
   correctTyped: 0,
   nextCharPointer:0,
+  testStarted:false,
+  totalTime:300
 };
 
 export const typingSlice = createSlice({
@@ -42,7 +44,11 @@ export const typingSlice = createSlice({
   reducers: {
     handleTypeBoxChange: (state, action) => {
       const { value, backspace } = action.payload;
-      console.log(value, backspace);
+      // console.log(value, backspace);
+      // After clicking we start the test
+      state.testStarted = true;
+
+      // logic when backspace is clicked
       if (backspace == null) {
         if (state.typedChar.length <= state.correctTyped) {
         } else {
@@ -70,14 +76,39 @@ export const typingSlice = createSlice({
         state.nextCharPointer=0;
       }
     },
-
+    // INITAL SETUP
     initialNextChar: (state) => {
       state.nextChar = state.displayChar[0];
       state.totalChar = state.displayChar.length;
     },
+    // TOTA TIME
+    setTime:(state)=>{
+      state.totalTime-=1
+    },
+
+    // WHEN TEST END
+    testEnd:(state)=>{
+      // logic
+    },
+
+      // RESET EVERYTHING
+    resetTest:(state)=>{
+      state=initialState
+      // state.displayChar = generateWord(5),
+      // state.totalChar= 0,
+      // state.typedChar= "",
+      // state.typedCorrectChar= "",
+      // state.displayKeys = displayKeyArr,
+      // state.nextChar= "",
+      // state.totalTyped= 0,
+      // state.correctTyped= 0,
+      // state.nextCharPointer=0,
+      // state.testStarted=false,
+      // state.totalTime= 300
+    }
   },
 });
 
-export const { handleTypeBoxChange, initialNextChar } = typingSlice.actions;
+export const { handleTypeBoxChange, initialNextChar,setTime,testEnd,resetTest } = typingSlice.actions;
 
 export default typingSlice.reducer;

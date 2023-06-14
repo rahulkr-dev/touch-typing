@@ -1,15 +1,17 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from 'react'
+import KeysToType from './components/keysToType/KeysToType'
+import TypingBox from './components/typingBox/TypingBox';
+import DisplayKeyboard from './components/displayKeyboard/DisplayKeyboard';
+import "./App.css"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
+    <div>
+      <KeysToType />
+      <TypingBox />
+      <DisplayKeyboard />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

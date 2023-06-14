@@ -1,13 +1,31 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap');
+
+:root{
+  --backgroundColor:#0079FF;
+  --success:#00DFA2;
+  --wrong:rgb(255, 0, 96);
+  --lightGray:#ACBCFF;
+  --displayWord:#2B2730;
+  --purple:#6554AF;
+  --pBShadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.app {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--backgroundColor);
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
 }
 
+
 .active{
-background-color: red;
+background-color: var(--success);
+color: white;
 }
-.not-active{
-  background-color: gray;
-}
+
 
 
 @media (prefers-reduced-motion: no-preference) {

@@ -1,0 +1,9 @@
+.container{
+    padding: 1rem 2rem;
+    background-color: var(--backgroundColor);
+    color: #2B2730;
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    box-shadow: var(--pBShadow);
+    font-weight: bold;
+}

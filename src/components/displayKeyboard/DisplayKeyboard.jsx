@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Keys from "./Keys";
+import style from "./displayKeyboard.module.css"
 import { initialNextChar } from "../../app/typingSlice";
 const DisplayKeyboard = () => {
   const { displayKeys } = useSelector((state) => state.touchTyping);
@@ -9,7 +10,7 @@ const DisplayKeyboard = () => {
     dispatch(initialNextChar());
   }, []);
   return (
-    <div>
+    <div className={style.container}>
       {displayKeys.map((obj) => (
         <Keys key={obj.value} value={obj.value} />
       ))}

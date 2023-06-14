@@ -22,6 +22,7 @@ const Result = () => {
     <div className={style.container}>
       <EndTest />
       <ResetTest />
+      <ResultBox id={"Keys"} value={totalTyped} />
       <ResultBox id={"WPM"} value={wpm} />
       <ResultBox id="Error" value={totalTyped - correctTyped.toFixed(0)} />
       <ResultBox

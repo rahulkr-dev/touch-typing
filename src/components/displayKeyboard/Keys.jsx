@@ -6,7 +6,7 @@ const Keys = ({ value }) => {
   console.log(nextChar);
   const flag = nextChar == value;
   return (
-    <span className={`${style.button} ${flag ? "active" : "not-active"}`}>
+    <span className={`${style.button} ${flag ? "active" : "not-active"} ${value==" "?"spaceBar":""}`}>
       {value}
     </span>
   );

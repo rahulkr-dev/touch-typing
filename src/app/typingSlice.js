@@ -31,7 +31,7 @@ const generateWord = (length, spaceAfter) => {
 
 
 const initialState = {
-  displayChar: generateWord(15,3),
+  displayChar: generateWord(24,3),
   totalChar: 0,
   typedChar: "",
   typedCorrectChar: "",

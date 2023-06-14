@@ -12,7 +12,7 @@ const TypingBox = () => {
   }
   return (
     <div className={style.container}>
-      <input className={style.inputBox} value={typedChar} onChange={handleChange} type="text" />
+      <textarea placeholder='Re-Type the words' className={style.inputBox} value={typedChar} onChange={handleChange} type="text" />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import style from "./result.module.css";
 import { useSelector,useDispatch } from "react-redux";
-import { setTime } from "../../app/typingSlice";
+import { setTime,testEnd } from "../../app/typingSlice";
 const Time = () => {
 
   const { testStarted,totalTime } = useSelector((state) => state.touchTyping);
@@ -13,7 +13,7 @@ const Time = () => {
       ref.current = setInterval(() => {
         // setTime((prevTime) => prevTime - 1);
         dispatch(setTime())
-        console.log(Date.now())
+        // console.log(Date.now())
       }, 1000);
     }
 
@@ -29,6 +29,10 @@ const Time = () => {
       .toString()
       .padStart(2, "0")}`;
   };
+
+  if(totalTime==0){
+    dispatch(testEnd())
+  }
 
   return (
     <div className={style.box}>

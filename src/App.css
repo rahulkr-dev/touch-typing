@@ -49,3 +49,12 @@ color: white;
   display: block;
 }
 
+.spaceBar{
+  width: 15rem;
+  position: absolute;
+  top: 120%;
+  left: 28%;
+  /* transform: translateY(150%); */
+  /* transform: translateX(-150%); */
+}
+

@@ -27,14 +27,14 @@ const initialState = {
   displayChar: generateWord(5),
   totalChar: 0,
   typedChar: "",
-  typedCorrectChar:"",
+  typedCorrectChar: "",
   displayKeys: displayKeyArr,
   nextChar: "",
   totalTyped: 0,
   correctTyped: 0,
-  nextCharPointer:0,
-  testStarted:false,
-  totalTime:300
+  nextCharPointer: 0,
+  testStarted: false,
+  totalTime: 300,
 };
 
 export const typingSlice = createSlice({
@@ -61,10 +61,9 @@ export const typingSlice = createSlice({
       //   cheking for correctType
       if (backspace == state.nextChar) {
         state.correctTyped += 1;
-        state.typedCorrectChar+= backspace
-        state.nextCharPointer+=1;
-        state.nextChar =
-          state.displayChar[state.nextCharPointer];
+        state.typedCorrectChar += backspace;
+        state.nextCharPointer += 1;
+        state.nextChar = state.displayChar[state.nextCharPointer];
       }
 
       // Check Weather display word finished or not
@@ -73,7 +72,7 @@ export const typingSlice = createSlice({
         state.displayChar = newWord;
         state.totalChar += newWord.length;
         state.nextChar = state.displayChar[0];
-        state.nextCharPointer=0;
+        state.nextCharPointer = 0;
       }
     },
     // INITAL SETUP
@@ -82,33 +81,40 @@ export const typingSlice = createSlice({
       state.totalChar = state.displayChar.length;
     },
     // TOTA TIME
-    setTime:(state)=>{
-      state.totalTime-=1
+    setTime: (state) => {
+      state.totalTime -= 1;
     },
 
     // WHEN TEST END
-    testEnd:(state)=>{
+    testEnd: (state) => {
       // logic
+      state.testStarted = false;
     },
 
-      // RESET EVERYTHING
-    resetTest:(state)=>{
-      state=initialState
-      // state.displayChar = generateWord(5),
-      // state.totalChar= 0,
-      // state.typedChar= "",
-      // state.typedCorrectChar= "",
-      // state.displayKeys = displayKeyArr,
-      // state.nextChar= "",
-      // state.totalTyped= 0,
-      // state.correctTyped= 0,
-      // state.nextCharPointer=0,
-      // state.testStarted=false,
-      // state.totalTime= 300
-    }
+    // RESET EVERYTHING
+    resetTest: (state) => {
+      const word = generateWord(5)
+      state.displayChar = word;
+      state.totalChar= 0;
+      state.typedChar= "";
+      state.typedCorrectChar= "";
+      state.displayKeys = displayKeyArr;
+      state.nextChar= "";
+      state.totalTyped= 0;
+      state.correctTyped= 0;
+      state.nextCharPointer=0;
+      state.testStarted=false;
+      state.totalTime= 300
+    },
   },
 });
 
-export const { handleTypeBoxChange, initialNextChar,setTime,testEnd,resetTest } = typingSlice.actions;
+export const {
+  handleTypeBoxChange,
+  initialNextChar,
+  setTime,
+  testEnd,
+  resetTest,
+} = typingSlice.actions;
 
 export default typingSlice.reducer;

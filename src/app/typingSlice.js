@@ -9,22 +9,29 @@ const displayKeyArr = [
   { value: "k" },
   { value: "l" },
   { value: ";" },
+  {value:' '}
 ];
 
-const generateWord = (length) => {
-  const characters = "asdfjkl;";
-  let word = "";
+const generateWord = (length, spaceAfter) => {
+  const characters = 'asdfjkl;';
+  let word = '';
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
     word += characters[randomIndex];
+
+    // Add space after every specified number of characters
+    if ((i + 1) % spaceAfter === 0 && i !== length - 1) {
+      word += ' ';
+    }
   }
 
   return word;
 };
 
+
 const initialState = {
-  displayChar: generateWord(5),
+  displayChar: generateWord(15,3),
   totalChar: 0,
   typedChar: "",
   typedCorrectChar: "",
@@ -35,6 +42,7 @@ const initialState = {
   nextCharPointer: 0,
   testStarted: false,
   totalTime: 300,
+  averageWordLength:3
 };
 
 export const typingSlice = createSlice({
@@ -60,6 +68,9 @@ export const typingSlice = createSlice({
       state.totalTyped += 1;
       //   cheking for correctType
       if (backspace == state.nextChar) {
+        // if(backspace==" "){
+        //   state.totalWord+=1
+        // }
         state.correctTyped += 1;
         state.typedCorrectChar += backspace;
         state.nextCharPointer += 1;
@@ -68,7 +79,7 @@ export const typingSlice = createSlice({
 
       // Check Weather display word finished or not
       if (state.correctTyped == state.totalChar) {
-        let newWord = generateWord(5);
+        let newWord = generateWord(15,3);
         state.displayChar = newWord;
         state.totalChar += newWord.length;
         state.nextChar = state.displayChar[0];
@@ -93,13 +104,13 @@ export const typingSlice = createSlice({
 
     // RESET EVERYTHING
     resetTest: (state) => {
-      const word = generateWord(5)
+      const word = generateWord(15,3)
       state.displayChar = word;
       state.totalChar= 0;
       state.typedChar= "";
       state.typedCorrectChar= "";
       state.displayKeys = displayKeyArr;
-      state.nextChar= "";
+      state.nextChar= word[0];
       state.totalTyped= 0;
       state.correctTyped= 0;
       state.nextCharPointer=0;

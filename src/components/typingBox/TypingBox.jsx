@@ -7,6 +7,7 @@ const TypingBox = () => {
   const {typedChar} = useSelector(state=>state.touchTyping);
 
   const handleChange = (e)=>{
+    // console.log(e.nativeEvent.data==" ")
     dispatch(handleTypeBoxChange({value:e.target.value,backspace:e.nativeEvent.data}))
   }
   return (

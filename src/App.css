@@ -10,14 +10,29 @@
   --pBShadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
+body{
+
+  background-color: var(--backgroundColor);
+}
 .app {
+  margin: 0;
+  padding: 0;
+  padding-top: 2rem;
   font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+ 
   background-color: var(--backgroundColor);
   display: grid;
   justify-content: center;
   gap: 1rem;
+  grid-template-columns: 70vw;
+  grid-template-rows: repeat(1fr,6);
+  align-items: center;
+  /* display: flex;
+  flex-direction: column;
+  gap: 2rem; */
+  align-items: center;
+  height: max-content;
 }
 
 
@@ -27,31 +42,3 @@ color: white;
 }
 
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}

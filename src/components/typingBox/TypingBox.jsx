@@ -10,7 +10,7 @@ const TypingBox = () => {
     dispatch(handleTypeBoxChange(e.target.value))
   }
   return (
-    <div>
+    <div className={style.container}>
       <input className={style.inputBox} value={typedChar} onChange={handleChange} type="text" />
     </div>
   )

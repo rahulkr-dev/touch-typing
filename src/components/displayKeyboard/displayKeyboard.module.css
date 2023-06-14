@@ -20,4 +20,21 @@
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
+    margin: auto;
+    margin-top: 4rem;
+    transform: translateX(-25%);
+    /* justify-content: center; */
+    /* width: 75%; */
 }
+
+/* @media (max-width: 768px) {
+    .container {
+      width: 85%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      width: 100%;
+    }
+  } */

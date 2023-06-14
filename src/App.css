@@ -41,4 +41,11 @@ background-color: var(--success);
 color: white;
 }
 
+.displayNone{
+  display: none;
+}
+
+.displayBlock{
+  display: block;
+}
 
